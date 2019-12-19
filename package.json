@@ -12,9 +12,6 @@
     "lint": "eslint --ext .js --ext .jsx src/  --fix",
     "precommit": "yarn lint"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": {
     "production": [
       ">0.2%",
