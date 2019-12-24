@@ -1,6 +1,7 @@
+@import './styles/iconfont/iconfont.css';
+
 #root {
   box-sizing: border-box;;
   width: 100%;
   min-height: 100vh;
-  background: #ccc;
 }
