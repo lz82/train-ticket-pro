@@ -61,10 +61,10 @@ function Sudoku() {
   }, [])
 
   const handleChange = (cube) => {
-    arr.map((item) => {
-      return item.key === cube.key ? Object.assign(item, cube) : item
+    const temp = arr.map((item) => {
+      return item.key === cube.key ? Object.assign(item, { ...cube, hasError: false }) : Object.assign(item, { hasError: false})
     })
-    setArr(arr)
+    setArr(temp)
   }
 
   const checkRepeat = (checkList) => {
