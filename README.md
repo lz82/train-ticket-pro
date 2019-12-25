@@ -207,3 +207,7 @@ module.exports = config
 这意味可以在`.env`中使用`REACT_APP_TOKEN=$npm_package_token`来直接读取`package.json`中的变量，当然，也可以读取`dotenv`中的
 
 当打包时有多个环境时，需要先安装`dotenv-cli`,然后再`"build:qa": "dotenv -e .env.qa react-app-rewired build",`以这种形式指定需要使用的`.env`文件
+
+10. 修改静态资源文件根路径
+在发布至`github pages`时，会发现静态资源的根路径默认都是`/`,但是`gh-pages`的路径一般都会带个项目名称，这样就导致无法正确的加载诸如`js`和`css`这类文件，最简单的方法就是在`package.json`中增加`"homepage": "/sudo"`即可。
+

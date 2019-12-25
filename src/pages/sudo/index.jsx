@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styles from './index.module.less'
-import { Button } from 'antd'
+import { Button, message } from 'antd'
 import Cube from './components/cube'
 
 const sudoLib = [
@@ -110,14 +110,20 @@ function Sudoku() {
 
     errArr = new Set(errArr)
 
-    setArr(
-      arr.map((item) => {
-        console.log(errArr)
-        return Array.from(errArr).findIndex((o) => o === item.key) > -1
-          ? Object.assign(item, { hasError: true })
-          : Object.assign(item, { hasError: false })
-      })
-    )
+    if(errArr.size > 0) {
+      setArr(
+        arr.map((item) => {
+          console.log(errArr)
+          return Array.from(errArr).findIndex((o) => o === item.key) > -1
+            ? Object.assign(item, { hasError: true })
+            : Object.assign(item, { hasError: false })
+        })
+      )
+      message.error('请仔细检查标红的格子喔~')
+    } else {
+      message.success('恭喜你，完成了！')
+    }
+
   }
 
   const handleReset = () => {
@@ -144,11 +150,11 @@ function Sudoku() {
         <Button type="primary" size="large" onClick={handleSubmit}>
           提交
         </Button>
-        &nbsp;
+        &nbsp;&nbsp;
         <Button type="danger" size="large" onClick={handleReset}>
           重置
         </Button>
-        &nbsp;
+        &nbsp;&nbsp;
         <Button type="danger" size="large" onClick={handleAg}>
           再来一次
         </Button>

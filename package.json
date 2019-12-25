@@ -1,5 +1,6 @@
 {
   "name": "train-ticket-pro",
+  "homepage": "/sudo",
   "token": "_train_ticket_pro_",
   "version": "0.1.0",
   "private": true,
