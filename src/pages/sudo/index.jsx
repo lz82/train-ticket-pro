@@ -123,7 +123,7 @@ function Sudoku() {
   const handleReset = () => {
     setArr(
       arr.map((item) => {
-        return item.isLock ? item : Object.assign(item, { val: null })
+        return item.isLock ? Object.assign(item, { hasError: false }) : Object.assign(item, { val: null, hasError: false })
       })
     )
   }
